@@ -1,0 +1,316 @@
+:root {
+    --primary-color: #4CAF50; /* Green */
+    --secondary-color: #f4f4f4; /* Light Grey */
+    --text-color: #333;
+    --border-color: #ddd;
+    --card-bg: #fff;
+    --button-hover-bg: #45a049;
+    --delete-button-bg: #f44336;
+    --delete-button-hover-bg: #da190b;
+    --notification-bg: #333;
+    --notification-text: #fff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.nav-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover, .nav-button.active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+section {
+    display: none; /* Hidden by default, managed by JS */
+    padding: 20px 0;
+}
+
+section.active {
+    display: block;
+}
+
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.auth-forms {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.auth-form {
+    background-color: var(--secondary-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+}
+
+.auth-form h3 {
+    text-align: center;
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"],
+.form-actions button,
+.recipe-card button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+button[type="submit"]:hover,
+.form-actions button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.form-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form-actions button:last-child {
+    margin-right: 0;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.controls input,
+.controls select {
+    flex: 1;
+    min-width: 200px;
+    max-width: 300px;
+}
+
+.recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding-top: 10px;
+}
+
+.recipe-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.recipe-card h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    cursor: pointer; /* To indicate it's clickable for details */
+}
+
+.recipe-card p {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.recipe-card .category-tag {
+    display: inline-block;
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.recipe-card .actions {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.recipe-card .actions .edit-btn {
+    background-color: #007bff; /* Blue for edit */
+}
+
+.recipe-card .actions .edit-btn:hover {
+    background-color: #0056b3;
+}
+
+.recipe-card .actions .delete-btn {
+    background-color: var(--delete-button-bg);
+}
+
+.recipe-card .actions .delete-btn:hover {
+    background-color: var(--delete-button-hover-bg);
+}
+
+.recipe-detail {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.recipe-detail h4 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.recipe-detail pre {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-radius: 5px;
+    white-space: pre-wrap; /* Ensures text wraps */
+    word-wrap: break-word;
+    font-family: inherit;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#no-recipes-message {
+    text-align: center;
+    grid-column: 1 / -1; /* Span across all columns */
+    font-style: italic;
+    color: #777;
+    padding: 30px;
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+}
+
+.notification {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--notification-bg);
+    color: var(--notification-text);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+    font-size: 1.1rem;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-button {
+        width: 100%;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls input,
+    .controls select {
+        max-width: 100%;
+    }
+
+    .recipe-grid {
+        grid-template-columns: 1fr;
+    }
+}

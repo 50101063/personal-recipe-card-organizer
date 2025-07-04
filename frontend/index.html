@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Recipe Card Organizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Personal Recipe Card Organizer</h1>
+        <nav>
+            <button id="nav-recipes" class="nav-button active">My Recipes</button>
+            <button id="nav-add-recipe" class="nav-button">Add New Recipe</button>
+            <button id="nav-logout" class="nav-button">Logout</button>
+            <button id="nav-login-register" class="nav-button hidden">Login/Register</button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="auth-section" class="hidden">
+            <h2>Login or Register</h2>
+            <div class="auth-forms">
+                <form id="login-form" class="auth-form">
+                    <h3>Login</h3>
+                    <input type="text" id="login-username" placeholder="Username" required>
+                    <input type="password" id="login-password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="#" id="show-register">Register here</a></p>
+                </form>
+
+                <form id="register-form" class="auth-form hidden">
+                    <h3>Register</h3>
+                    <input type="text" id="register-username" placeholder="Username (Email)" required>
+                    <input type="password" id="register-password" placeholder="Password" required>
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <a href="#" id="show-login">Login here</a></p>
+                </form>
+            </div>
+        </section>
+
+        <section id="recipes-list-section" class="active">
+            <h2>My Recipes</h2>
+            <div class="controls">
+                <input type="text" id="search-input" placeholder="Search by name or ingredient...">
+                <select id="category-filter">
+                    <option value="">All Categories</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Drink">Drink</option>
+                </select>
+            </div>
+            <div id="recipes-container" class="recipe-grid">
+                <!-- Recipe cards will be loaded here by JavaScript -->
+                <p id="no-recipes-message" class="hidden">No recipes found. Add a new one!</p>
+            </div>
+        </section>
+
+        <section id="recipe-form-section" class="hidden">
+            <h2 id="recipe-form-title">Add New Recipe</h2>
+            <form id="recipe-form">
+                <input type="hidden" id="recipe-id">
+                <label for="recipe-name">Recipe Name:</label>
+                <input type="text" id="recipe-name" required>
+
+                <label for="recipe-ingredients">Ingredients (one per line):</label>
+                <textarea id="recipe-ingredients" rows="8" required></textarea>
+
+                <label for="recipe-instructions">Instructions:</label>
+                <textarea id="recipe-instructions" rows="10" required></textarea>
+
+                <label for="recipe-category">Category:</label>
+                <select id="recipe-category" required>
+                    <option value="">Select a Category</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Snack">Snack</option>
+                    <option value="Soup">Soup</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Drink">Drink</option>
+                </select>
+
+                <div class="form-actions">
+                    <button type="submit" id="save-recipe-btn">Save Recipe</button>
+                    <button type="button" id="cancel-recipe-btn">Cancel</button>
+                </div>
+            </form>
+        </section>
+
+        <div id="notification" class="notification hidden"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
